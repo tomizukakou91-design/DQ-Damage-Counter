@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,19 +9,25 @@
 </head>
 <body>
     <main class="app">
-        <h2>⚔️ DQ ダメージカウンター</h2>
+        <h1>⚔️ DQ ダメージカウンター</h1>
 
-        <label for="maxHP">初期HP（未入力でもOK）</label>
-        <input type="number" id="maxHP" placeholder="HP不明">
+        <section class="top-panel">
+            <div class="hp-input-area">
+                <label for="maxHP">初期HP</label>
+                <input type="number" id="maxHP" placeholder="HP不明">
+            </div>
 
-        <section class="result">
-            <h3 id="hpLabel">累計ダメージ</h3>
-            <div id="display">0</div>
-            <p id="totalDisplay">累計ダメージ：0</p>
+            <div class="result-card">
+                <div class="result-main">
+                    <p id="hpLabel">累計ダメージ</p>
+                    <div id="display">0</div>
+                </div>
+                <p id="totalDisplay">累計ダメージ（回復差引）：0</p>
+            </div>
         </section>
 
         <section class="calculator">
-            <p>入力する数値</p>
+            <p class="calc-label">入力する数値</p>
             <div id="amountDisplay">0</div>
 
             <div class="number-grid">
@@ -40,24 +45,20 @@
                 <button data-key="⌫">⌫</button>
             </div>
 
-            <div class="action-grid">
+            <div class="main-actions">
                 <button id="damageBtn" class="damage">ダメージ</button>
                 <button id="healBtn" class="heal">回復</button>
             </div>
         </section>
 
+        <section class="sub-actions">
+            <button id="yellowBtn" class="yellow-btn">🟡 黄色</button>
+            <button id="orangeBtn" class="orange-btn">🟠 オレンジ</button>
+            <button id="undoBtn" class="sub-btn">↶ 取り消し</button>
+            <button id="resetBtn" class="sub-btn">戦闘リセット</button>
+        </section>
+
         <section class="color-tracker">
-            <h3>HP色変化の記録</h3>
-
-            <div class="color-buttons">
-                <button id="yellowBtn" class="yellow-btn">
-                    🟡 黄色になった
-                </button>
-                <button id="orangeBtn" class="orange-btn">
-                    🟠 オレンジになった
-                </button>
-            </div>
-
             <div id="colorRecords" class="color-records">
                 色変化の記録なし
             </div>
@@ -73,15 +74,10 @@
             </button>
         </section>
 
-        <div class="controls">
-            <button id="undoBtn">↶ 取り消し</button>
-            <button id="resetBtn">戦闘リセット</button>
-        </div>
-
-        <section class="history">
-            <h3>入力履歴</h3>
+        <details class="history-panel">
+            <summary>入力履歴を開く</summary>
             <ul id="historyList"></ul>
-        </section>
+        </details>
     </main>
 </body>
 </html>
