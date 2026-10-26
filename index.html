@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DQ Damage Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <h2>⚔️ DQ ダメージカウンター</h2>
+
+        <label for="maxHP">初期HP（未入力でもOK）</label>
+        <input type="number" id="maxHP" placeholder="HP不明">
+
+        <section class="result">
+            <h3 id="hpLabel">累計ダメージ</h3>
+            <div id="display">0</div>
+            <p id="totalDisplay">累計ダメージ：0</p>
+        </section>
+
+        <section class="calculator">
+            <p>入力する数値</p>
+            <div id="amountDisplay">0</div>
+
+            <div class="number-grid">
+                <button data-key="7">7</button>
+                <button data-key="8">8</button>
+                <button data-key="9">9</button>
+                <button data-key="4">4</button>
+                <button data-key="5">5</button>
+                <button data-key="6">6</button>
+                <button data-key="1">1</button>
+                <button data-key="2">2</button>
+                <button data-key="3">3</button>
+                <button data-key="C">C</button>
+                <button data-key="0">0</button>
+                <button data-key="⌫">⌫</button>
+            </div>
+
+            <div class="action-grid">
+                <button id="damageBtn" class="damage">ダメージ</button>
+                <button id="healBtn" class="heal">回復</button>
+            </div>
+        </section>
+
+        <section class="color-tracker">
+            <h3>HP色変化の記録</h3>
+
+            <div class="color-buttons">
+                <button id="yellowBtn" class="yellow-btn">
+                    🟡 黄色になった
+                </button>
+                <button id="orangeBtn" class="orange-btn">
+                    🟠 オレンジになった
+                </button>
+            </div>
+
+            <div id="colorRecords" class="color-records">
+                色変化の記録なし
+            </div>
+
+            <div class="hp-estimate">
+                <p>推定最大HP</p>
+                <div id="estimatedHP">記録待ち</div>
+                <small id="estimateDetail"></small>
+            </div>
+
+            <button id="clearColorsBtn" class="clear-colors">
+                色変化の記録を解除
+            </button>
+        </section>
+
+        <div class="controls">
+            <button id="undoBtn">↶ 取り消し</button>
+            <button id="resetBtn">戦闘リセット</button>
+        </div>
+
+        <section class="history">
+            <h3>入力履歴</h3>
+            <ul id="historyList"></ul>
+        </section>
+    </main>
+</body>
+</html>
